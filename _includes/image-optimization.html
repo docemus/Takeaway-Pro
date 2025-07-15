@@ -1,0 +1,28 @@
+<!-- Image optimization with lazy loading and WebP/AVIF support -->
+{% assign image_path = include.src %}
+{% assign image_alt = include.alt | default: "" %}
+{% assign image_class = include.class | default: "" %}
+{% assign image_loading = include.loading | default: "lazy" %}
+
+<!-- Generate different image formats -->
+{% assign webp_path = image_path | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
+{% assign avif_path = image_path | replace: '.jpg', '.avif' | replace: '.png', '.avif' %}
+
+<picture class="{{ image_class }}">
+    <!-- AVIF format for modern browsers -->
+    <source srcset="{{ '/assets/images/' | append: avif_path | relative_url }}" type="image/avif">
+    
+    <!-- WebP format for supported browsers -->
+    <source srcset="{{ '/assets/images/' | append: webp_path | relative_url }}" type="image/webp">
+    
+    <!-- Fallback to original format -->
+    <img src="{{ '/assets/images/' | append: image_path | relative_url }}" 
+         alt="{{ image_alt }}" 
+         loading="{{ image_loading }}"
+         decoding="async"
+         class="{{ image_class }}"
+         {% if image_loading == 'lazy' %}
+         data-src="{{ '/assets/images/' | append: image_path | relative_url }}"
+         {% endif %}>
+</picture>
+

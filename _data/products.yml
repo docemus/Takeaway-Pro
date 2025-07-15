@@ -1,0 +1,48 @@
+- category: "Scatole Pizza"
+  items:
+    - title: "Scatola Pizza 30cm Eco"
+      amazon_id: "B08XYZ1234"
+      features: ["Biodegradabile", "Taglio ventilato", "Resistente al grasso"]
+      price: 12.99
+      image: "scatola-eco-30.jpg"
+      description: "Scatola per pizza da 30cm realizzata in cartone eco-sostenibile con taglio ventilato per mantenere la croccantezza."
+    
+    - title: "Scatola Pizza 35cm Premium"
+      amazon_id: "B08ABC5678"
+      features: ["Extra resistente", "Design personalizzabile", "Eco-friendly"]
+      price: 15.99
+      image: "scatola-premium-35.jpg"
+      description: "Scatola premium per pizza da 35cm, ideale per pizze gourmet e consegne a lunga distanza."
+
+- category: "Contenitori Asporto"
+  items:
+    - title: "Box Hamburger Kraft"
+      amazon_id: "B08DEF9012"
+      features: ["Carta kraft", "Chiusura sicura", "Compostabile"]
+      price: 8.50
+      image: "box-hamburger-kraft.jpg"
+      description: "Contenitore per hamburger in carta kraft naturale, perfetto per fast food e street food."
+    
+    - title: "Vaschetta Alluminio 3 Scomparti"
+      amazon_id: "B08GHI3456"
+      features: ["3 scomparti", "Coperchio incluso", "Riciclabile"]
+      price: 18.99
+      image: "vaschetta-alluminio-3.jpg"
+      description: "Vaschetta in alluminio con 3 scomparti separati, ideale per menu completi e porzioni multiple."
+
+- category: "Accessori"
+  items:
+    - title: "Posate Biodegradabili Set 100pz"
+      amazon_id: "B08JKL7890"
+      features: ["100% biodegradabile", "Resistenti", "Set completo"]
+      price: 22.99
+      image: "posate-biodegradabili.jpg"
+      description: "Set da 100 posate biodegradabili in PLA, include forchette, coltelli e cucchiai."
+    
+    - title: "Tovaglioli Personalizzati"
+      amazon_id: "B08MNO1234"
+      features: ["Stampa personalizzata", "2 strati", "Assorbenti"]
+      price: 35.00
+      image: "tovaglioli-personalizzati.jpg"
+      description: "Tovaglioli a 2 strati con possibilità di stampa personalizzata del logo aziendale."
+

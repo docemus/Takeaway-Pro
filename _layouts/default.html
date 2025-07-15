@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="keywords" content="ristorazione, asporto, contenitori, scatole pizza, eco-sostenibile, biodegradabile">
+    <meta name="author" content="{{ site.title }}">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Critical CSS inline -->
+    {% include critical-css.html %}
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+    <meta name="theme-color" content="#88AA77">
+    
+    <!-- Performance hints -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "{{ site.title }}",
+        "description": "{{ site.description }}",
+        "url": "{{ site.url }}",
+        "email": "{{ site.email }}",
+        "sameAs": []
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="{{ '/' | relative_url }}" class="header__logo">
+                TakeAway Pro
+            </a>
+            <nav class="header__nav">
+                <a href="{{ '/' | relative_url }}" class="header__nav-link">Home</a>
+                <a href="{{ '/#prodotti' | relative_url }}" class="header__nav-link">Prodotti</a>
+                <a href="{{ '/about' | relative_url }}" class="header__nav-link">Chi Siamo</a>
+                <a href="{{ '/contatti' | relative_url }}" class="header__nav-link">Contatti</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {{ content }}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <h3 class="footer__title">TakeAway Pro</h3>
+            <p class="footer__text">
+                La tua fonte di fiducia per prodotti di qualità per la ristorazione d'asporto. 
+                Soluzioni eco-sostenibili per il tuo business.
+            </p>
+            <div class="footer__links">
+                <a href="{{ '/' | relative_url }}" class="footer__link">Home</a>
+                <a href="{{ '/#prodotti' | relative_url }}" class="footer__link">Prodotti</a>
+                <a href="{{ '/privacy' | relative_url }}" class="footer__link">Privacy</a>
+                <a href="{{ '/termini' | relative_url }}" class="footer__link">Termini</a>
+            </div>
+            <div class="footer__copyright">
+                <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('{{ "/sw.js" | relative_url }}')
+                    .then(function(registration) {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
+

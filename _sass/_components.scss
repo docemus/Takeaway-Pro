@@ -1,0 +1,386 @@
+// Components - Product Showcase
+@import 'variables';
+
+// Header/Navigation
+.header {
+  background-color: $color-white;
+  border-bottom: $border-thick;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $space-4 $space-6;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  &__logo {
+    font-family: $font-heading;
+    font-size: $text-2xl;
+    font-weight: $weight-black;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: $color-black;
+    text-decoration: none;
+    
+    &:hover {
+      color: $color-sage;
+      text-decoration: none;
+    }
+  }
+  
+  &__nav {
+    display: flex;
+    gap: $space-8;
+    
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+  
+  &__nav-link {
+    font-family: $font-heading;
+    font-weight: $weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: $space-2 $space-4;
+    transition: all $transition-fast;
+    
+    &:hover {
+      background-color: $color-sage;
+      color: $color-black;
+      text-decoration: none;
+    }
+  }
+}
+
+// Product Card
+.product-card {
+  background-color: $color-white;
+  border: $border-thick;
+  box-shadow: $shadow-brutal;
+  transition: all $transition-normal;
+  overflow: hidden;
+  
+  &:hover {
+    transform: translate(-6px, -6px);
+    box-shadow: $shadow-brutal-hover;
+  }
+  
+  &__image {
+    width: 100%;
+    height: 250px;
+    background-color: lighten($color-sage, 30%);
+    border-bottom: $border-medium;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $text-lg;
+    font-weight: $weight-bold;
+    color: $color-black;
+    position: relative;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform $transition-slow;
+    }
+    
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+  
+  &__content {
+    padding: $space-6;
+  }
+  
+  &__category {
+    font-size: $text-sm;
+    font-weight: $weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $color-sage;
+    margin-bottom: $space-2;
+  }
+  
+  &__title {
+    font-family: $font-heading;
+    font-size: $text-xl;
+    font-weight: $weight-bold;
+    margin-bottom: $space-3;
+    line-height: 1.3;
+  }
+  
+  &__description {
+    font-size: $text-sm;
+    line-height: 1.5;
+    margin-bottom: $space-4;
+    color: lighten($color-black, 20%);
+  }
+  
+  &__features {
+    margin-bottom: $space-4;
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: $space-2;
+    }
+    
+    li {
+      background-color: $color-sage;
+      color: $color-black;
+      font-size: $text-xs;
+      font-weight: $weight-semibold;
+      padding: $space-1 $space-3;
+      border: $border-thin;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0;
+    }
+  }
+  
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: $border-thin;
+    padding-top: $space-4;
+    margin-top: $space-4;
+  }
+  
+  &__price {
+    font-family: $font-heading;
+    font-size: $text-2xl;
+    font-weight: $weight-black;
+    color: $color-black;
+    
+    &::before {
+      content: "€";
+      font-size: $text-lg;
+      margin-right: $space-1;
+    }
+  }
+  
+  &__cta {
+    padding: $space-3 $space-6;
+    font-size: $text-sm;
+    font-weight: $weight-bold;
+    text-transform: uppercase;
+    background-color: $color-black;
+    color: $color-white;
+    border: $border-medium;
+    box-shadow: $shadow-subtle;
+    transition: all $transition-fast;
+    text-decoration: none;
+    
+    &:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px $color-black;
+      background-color: $color-sage;
+      color: $color-black;
+      text-decoration: none;
+    }
+  }
+}
+
+// Hero Section
+.hero {
+  background-color: $color-sage;
+  border-bottom: $border-thick;
+  
+  &__content {
+    text-align: left;
+    
+    @media (max-width: $breakpoint-lg) {
+      text-align: center;
+    }
+  }
+  
+  &__title {
+    font-size: $text-6xl;
+    font-weight: $weight-black;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    line-height: 0.9;
+    margin-bottom: $space-6;
+    color: $color-black;
+    
+    @media (max-width: $breakpoint-lg) {
+      font-size: $text-5xl;
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: $text-4xl;
+    }
+  }
+  
+  &__subtitle {
+    font-size: $text-xl;
+    font-weight: $weight-medium;
+    line-height: 1.5;
+    margin-bottom: $space-8;
+    color: darken($color-black, 10%);
+    max-width: 500px;
+    
+    @media (max-width: $breakpoint-lg) {
+      margin: 0 auto $space-8;
+    }
+  }
+  
+  &__cta {
+    display: inline-flex;
+    gap: $space-4;
+    
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+  
+  &__visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-white;
+    border: $border-thick;
+    box-shadow: $shadow-brutal;
+    min-height: 400px;
+    font-size: $text-2xl;
+    font-weight: $weight-bold;
+    text-transform: uppercase;
+    
+    @media (max-width: $breakpoint-lg) {
+      min-height: 300px;
+    }
+  }
+}
+
+// Category Section
+.category-section {
+  &__header {
+    text-align: center;
+    margin-bottom: $space-16;
+    
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: $space-12;
+    }
+  }
+  
+  &__title {
+    font-size: $text-4xl;
+    font-weight: $weight-black;
+    text-transform: uppercase;
+    margin-bottom: $space-4;
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: $text-3xl;
+    }
+  }
+  
+  &__subtitle {
+    font-size: $text-lg;
+    color: lighten($color-black, 20%);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+// Footer
+.footer {
+  background-color: $color-black;
+  color: $color-white;
+  border-top: $border-thick;
+  
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $space-12 $space-6 $space-8;
+    text-align: center;
+  }
+  
+  &__title {
+    font-family: $font-heading;
+    font-size: $text-2xl;
+    font-weight: $weight-black;
+    text-transform: uppercase;
+    margin-bottom: $space-4;
+    color: $color-sage;
+  }
+  
+  &__text {
+    font-size: $text-base;
+    line-height: 1.6;
+    margin-bottom: $space-6;
+    color: lighten($color-white, 20%);
+  }
+  
+  &__links {
+    display: flex;
+    justify-content: center;
+    gap: $space-8;
+    margin-bottom: $space-6;
+    
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      gap: $space-4;
+    }
+  }
+  
+  &__link {
+    color: $color-white;
+    font-weight: $weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    
+    &:hover {
+      color: $color-sage;
+    }
+  }
+  
+  &__copyright {
+    font-size: $text-sm;
+    color: lighten($color-black, 40%);
+    border-top: 1px solid lighten($color-black, 20%);
+    padding-top: $space-4;
+  }
+}
+
+// Loading states and animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+// Lazy loading placeholder
+.lazy-placeholder {
+  background: linear-gradient(90deg, lighten($color-sage, 30%) 25%, lighten($color-sage, 20%) 50%, lighten($color-sage, 30%) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+

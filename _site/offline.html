@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>Offline - TakeAway Pro | TakeAway Pro - Prodotti per Ristorazione</title>
+    <meta name="description" content="Pagina offline per TakeAway Pro">
+    <meta name="keywords" content="ristorazione, asporto, contenitori, scatole pizza, eco-sostenibile, biodegradabile">
+    <meta name="author" content="TakeAway Pro - Prodotti per Ristorazione">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Offline - TakeAway Pro | TakeAway Pro - Prodotti per Ristorazione">
+    <meta property="og:description" content="Pagina offline per TakeAway Pro">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://0.0.0.0:4000/offline.html">
+    <meta property="og:site_name" content="TakeAway Pro - Prodotti per Ristorazione">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Offline - TakeAway Pro | TakeAway Pro - Prodotti per Ristorazione">
+    <meta name="twitter:description" content="Pagina offline per TakeAway Pro">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Critical CSS inline -->
+    <!-- Critical CSS for above-the-fold content -->
+<style>
+/* Critical CSS - Inline for performance */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;900&display=swap');
+
+/* Reset and base styles */
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-weight:400;line-height:1.6;color:#111111;background-color:#FFFFFF;overflow-x:hidden}
+
+/* Header - Critical */
+.header{background-color:#FFFFFF;border-bottom:3px solid #111111;position:sticky;top:0;z-index:100}
+.header__container{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;max-width:1200px;margin:0 auto}
+.header__logo{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:#111111;text-decoration:none}
+.header__logo:hover{color:#88AA77;text-decoration:none}
+.header__nav{display:flex;gap:2rem}
+.header__nav-link{font-family:'Montserrat',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;padding:0.5rem 1rem;transition:all 0.15s ease-out;color:#111111;text-decoration:none}
+.header__nav-link:hover{background-color:#88AA77;color:#111111;text-decoration:none}
+
+/* Hero Section - Critical */
+.section--hero{padding:6rem 0;background-color:#88AA77}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.grid--hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:80vh;gap:3rem}
+.hero__title{font-family:'Montserrat',sans-serif;font-size:3rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.03em;line-height:0.9;margin-bottom:1.5rem;color:#111111}
+.hero__subtitle{font-size:1.25rem;font-weight:500;line-height:1.5;margin-bottom:2rem;color:#111111;max-width:500px}
+.hero__cta{display:inline-flex;gap:1rem}
+.btn{display:inline-block;padding:1rem 2rem;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.05em;background-color:#88AA77;color:#111111;border:3px solid #111111;box-shadow:8px 8px 0px #111111;cursor:pointer;transition:all 0.15s ease-out;text-decoration:none}
+.btn:hover{transform:translate(-4px,-4px);box-shadow:12px 12px 0px #111111;background-color:#9BBB88;color:#111111;text-decoration:none}
+.btn--large{padding:1.5rem 3rem;font-size:1.125rem}
+.btn--secondary{background-color:#FFFFFF;color:#111111}
+.btn--secondary:hover{background-color:#111111;color:#FFFFFF}
+.hero__visual{display:flex;align-items:center;justify-content:center;background-color:#FFFFFF;border:3px solid #111111;box-shadow:8px 8px 0px #111111;min-height:400px;font-size:1.5rem;font-weight:700;text-transform:uppercase}
+
+/* Typography - Critical */
+h1,h2,h3,h4,h5,h6{font-family:'Montserrat',sans-serif;font-weight:700;line-height:1.2;margin-bottom:1rem}
+h2{font-size:2.25rem;font-weight:700;text-transform:uppercase}
+p{margin-bottom:1rem;font-size:1rem;line-height:1.7}
+
+/* Responsive - Critical */
+@media (max-width:1024px){
+.grid--hero{grid-template-columns:1fr;min-height:auto;gap:3rem}
+.hero__title{font-size:2.5rem;text-align:center}
+.hero__subtitle{margin:0 auto 2rem;text-align:center}
+.hero__cta{justify-content:center}
+.hero__visual{min-height:300px}
+}
+
+@media (max-width:768px){
+.header__nav{display:none}
+.container{padding:0 1rem}
+.section--hero{padding:4rem 0}
+.hero__title{font-size:2rem}
+.hero__cta{flex-direction:column;width:100%}
+.btn{text-align:center}
+}
+
+/* Loading animation */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.fade-in-up{animation:fadeInUp 0.6s ease-out}
+</style>
+
+
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#88AA77">
+    
+    <!-- Performance hints -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TakeAway Pro - Prodotti per Ristorazione",
+        "description": "Vetrina professionale di prodotti per ristorazione d'asporto.  Scatole, contenitori e accessori eco-sostenibili per il tuo business.",
+        "url": "http://0.0.0.0:4000",
+        "email": "info@takeawaypro.it",
+        "sameAs": []
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="/" class="header__logo">
+                TakeAway Pro
+            </a>
+            <nav class="header__nav">
+                <a href="/" class="header__nav-link">Home</a>
+                <a href="/#prodotti" class="header__nav-link">Prodotti</a>
+                <a href="/about" class="header__nav-link">Chi Siamo</a>
+                <a href="/contatti" class="header__nav-link">Contatti</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+    <div class="section">
+        <div style="text-align: center; padding: 4rem 0;">
+            <div style="font-size: 4rem; margin-bottom: 2rem;">📦</div>
+            
+            <h1 style="font-size: 3rem; font-weight: 900; text-transform: uppercase; margin-bottom: 1.5rem; color: #111111;">
+                Sei Offline
+            </h1>
+            
+            <p style="font-size: 1.25rem; margin-bottom: 2rem; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Non è possibile connettersi a internet in questo momento. 
+                Alcune funzionalità potrebbero non essere disponibili.
+            </p>
+            
+            <div style="margin-bottom: 3rem;">
+                <button onclick="window.location.reload()" class="btn btn--large">
+                    Riprova
+                </button>
+            </div>
+            
+            <div class="card" style="max-width: 600px; margin: 0 auto; text-align: left;">
+                <div class="card__header">
+                    <h3 class="card__title">Cosa puoi fare offline:</h3>
+                </div>
+                <div class="card__content">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: #88AA77; font-weight: bold;">✓</span>
+                            Visualizzare i prodotti già caricati
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: #88AA77; font-weight: bold;">✓</span>
+                            Navigare tra le pagine visitate
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: #88AA77; font-weight: bold;">✓</span>
+                            Consultare le informazioni sui prodotti
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; font-size: 0.875rem; color: #999;">
+                <p>Controlla la tua connessione internet e riprova.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Check for connection and auto-reload when back online
+window.addEventListener('online', function() {
+    // Show notification that connection is restored
+    if ('serviceWorker' in navigator && 'Notification' in window) {
+        navigator.serviceWorker.ready.then(function(registration) {
+            registration.showNotification('Connessione ripristinata!', {
+                body: 'Sei di nuovo online. La pagina verrà ricaricata.',
+                icon: '/assets/images/icon-192x192.png',
+                tag: 'connection-restored'
+            });
+        });
+    }
+    
+    // Reload page after a short delay
+    setTimeout(function() {
+        window.location.reload();
+    }, 2000);
+});
+
+// Update connection status
+function updateConnectionStatus() {
+    const status = navigator.onLine ? 'online' : 'offline';
+    document.body.setAttribute('data-connection', status);
+}
+
+window.addEventListener('online', updateConnectionStatus);
+window.addEventListener('offline', updateConnectionStatus);
+updateConnectionStatus();
+</script>
+
+<style>
+/* Offline page specific styles */
+body[data-connection="offline"] {
+    background-color: #f8f8f8;
+}
+
+body[data-connection="online"] {
+    background-color: #e8f5e8;
+}
+
+.connection-indicator {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+body[data-connection="offline"] .connection-indicator {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+body[data-connection="online"] .connection-indicator {
+    background-color: #51cf66;
+    color: white;
+}
+</style>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <h3 class="footer__title">TakeAway Pro</h3>
+            <p class="footer__text">
+                La tua fonte di fiducia per prodotti di qualità per la ristorazione d'asporto. 
+                Soluzioni eco-sostenibili per il tuo business.
+            </p>
+            <div class="footer__links">
+                <a href="/" class="footer__link">Home</a>
+                <a href="/#prodotti" class="footer__link">Prodotti</a>
+                <a href="/privacy" class="footer__link">Privacy</a>
+                <a href="/termini" class="footer__link">Termini</a>
+            </div>
+            <div class="footer__copyright">
+                <p>&copy; 2025 TakeAway Pro - Prodotti per Ristorazione. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/assets/js/main.js" defer></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
+

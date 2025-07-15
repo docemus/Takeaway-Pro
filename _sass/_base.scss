@@ -1,0 +1,296 @@
+// Base Styles - Brutalist Design
+@import 'variables';
+
+// Google Fonts Import
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;900&display=swap');
+
+// Reset and Base
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-body;
+  font-weight: $weight-regular;
+  line-height: 1.6;
+  color: $color-black;
+  background-color: $color-white;
+  overflow-x: hidden;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: $weight-bold;
+  line-height: 1.2;
+  margin-bottom: $space-4;
+}
+
+h1 {
+  font-size: $text-5xl;
+  font-weight: $weight-black;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: $text-4xl;
+  }
+}
+
+h2 {
+  font-size: $text-4xl;
+  font-weight: $weight-bold;
+  text-transform: uppercase;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: $text-3xl;
+  }
+}
+
+h3 {
+  font-size: $text-3xl;
+  font-weight: $weight-semibold;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: $text-2xl;
+  }
+}
+
+h4 {
+  font-size: $text-2xl;
+  font-weight: $weight-semibold;
+}
+
+h5 {
+  font-size: $text-xl;
+  font-weight: $weight-medium;
+}
+
+h6 {
+  font-size: $text-lg;
+  font-weight: $weight-medium;
+}
+
+p {
+  margin-bottom: $space-4;
+  font-size: $text-base;
+  line-height: 1.7;
+}
+
+a {
+  color: $color-black;
+  text-decoration: none;
+  font-weight: $weight-medium;
+  transition: all $transition-fast;
+  
+  &:hover {
+    color: $color-sage;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+}
+
+// Lists
+ul, ol {
+  margin-bottom: $space-4;
+  padding-left: $space-6;
+}
+
+li {
+  margin-bottom: $space-2;
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Buttons - Brutalist Style
+.btn {
+  display: inline-block;
+  padding: $space-4 $space-8;
+  font-family: $font-heading;
+  font-weight: $weight-bold;
+  font-size: $text-base;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: $color-sage;
+  color: $color-black;
+  border: $border-thick;
+  box-shadow: $shadow-brutal;
+  cursor: pointer;
+  transition: all $transition-fast;
+  text-decoration: none;
+  
+  &:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: $shadow-brutal-hover;
+    background-color: lighten($color-sage, 10%);
+    color: $color-black;
+    text-decoration: none;
+  }
+  
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: $shadow-subtle;
+  }
+  
+  &--secondary {
+    background-color: $color-white;
+    color: $color-black;
+    
+    &:hover {
+      background-color: $color-black;
+      color: $color-white;
+    }
+  }
+  
+  &--large {
+    padding: $space-6 $space-12;
+    font-size: $text-lg;
+  }
+}
+
+// Cards - Brutalist Style
+.card {
+  background-color: $color-white;
+  border: $border-thick;
+  box-shadow: $shadow-brutal;
+  padding: $space-6;
+  margin-bottom: $space-8;
+  transition: all $transition-normal;
+  
+  &:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: $shadow-brutal-hover;
+  }
+  
+  &__header {
+    border-bottom: $border-medium;
+    padding-bottom: $space-4;
+    margin-bottom: $space-4;
+  }
+  
+  &__title {
+    font-size: $text-2xl;
+    font-weight: $weight-bold;
+    margin-bottom: $space-2;
+  }
+  
+  &__content {
+    line-height: 1.6;
+  }
+}
+
+// Grid System - Asymmetric
+.grid {
+  display: grid;
+  gap: $space-8;
+  margin-bottom: $space-12;
+  
+  &--asymmetric {
+    grid-template-columns: 2fr 1fr;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &--products {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $space-10;
+    
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+      gap: $space-6;
+    }
+  }
+  
+  &--hero {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    min-height: 80vh;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      gap: $space-12;
+    }
+  }
+}
+
+// Container
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $space-6;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 0 $space-4;
+  }
+}
+
+// Section spacing
+.section {
+  padding: $space-20 0;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $space-12 0;
+  }
+  
+  &--hero {
+    padding: $space-24 0;
+    background-color: $color-sage;
+    
+    @media (max-width: $breakpoint-md) {
+      padding: $space-16 0;
+    }
+  }
+  
+  &--alt {
+    background-color: lighten($color-sage, 25%);
+  }
+}
+
+// Utilities
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-4 { margin-bottom: $space-4; }
+.mb-8 { margin-bottom: $space-8; }
+.mb-12 { margin-bottom: $space-12; }
+
+.mt-0 { margin-top: 0; }
+.mt-4 { margin-top: $space-4; }
+.mt-8 { margin-top: $space-8; }
+.mt-12 { margin-top: $space-12; }
+
+.font-bold { font-weight: $weight-bold; }
+.font-black { font-weight: $weight-black; }
+.uppercase { text-transform: uppercase; }
+
+// Responsive utilities
+.hidden-mobile {
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.hidden-desktop {
+  @media (min-width: $breakpoint-md) {
+    display: none;
+  }
+}
+

@@ -1,0 +1,118 @@
+---
+layout: default
+title: "Offline - TakeAway Pro"
+description: "Pagina offline per TakeAway Pro"
+---
+
+<div class="container">
+    <div class="section">
+        <div style="text-align: center; padding: 4rem 0;">
+            <div style="font-size: 4rem; margin-bottom: 2rem;">📦</div>
+            
+            <h1 style="font-size: 3rem; font-weight: 900; text-transform: uppercase; margin-bottom: 1.5rem; color: #111111;">
+                Sei Offline
+            </h1>
+            
+            <p style="font-size: 1.25rem; margin-bottom: 2rem; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Non è possibile connettersi a internet in questo momento. 
+                Alcune funzionalità potrebbero non essere disponibili.
+            </p>
+            
+            <div style="margin-bottom: 3rem;">
+                <button onclick="window.location.reload()" class="btn btn--large">
+                    Riprova
+                </button>
+            </div>
+            
+            <div class="card" style="max-width: 600px; margin: 0 auto; text-align: left;">
+                <div class="card__header">
+                    <h3 class="card__title">Cosa puoi fare offline:</h3>
+                </div>
+                <div class="card__content">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: #88AA77; font-weight: bold;">✓</span>
+                            Visualizzare i prodotti già caricati
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: #88AA77; font-weight: bold;">✓</span>
+                            Navigare tra le pagine visitate
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: #88AA77; font-weight: bold;">✓</span>
+                            Consultare le informazioni sui prodotti
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; font-size: 0.875rem; color: #999;">
+                <p>Controlla la tua connessione internet e riprova.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Check for connection and auto-reload when back online
+window.addEventListener('online', function() {
+    // Show notification that connection is restored
+    if ('serviceWorker' in navigator && 'Notification' in window) {
+        navigator.serviceWorker.ready.then(function(registration) {
+            registration.showNotification('Connessione ripristinata!', {
+                body: 'Sei di nuovo online. La pagina verrà ricaricata.',
+                icon: '/assets/images/icon-192x192.png',
+                tag: 'connection-restored'
+            });
+        });
+    }
+    
+    // Reload page after a short delay
+    setTimeout(function() {
+        window.location.reload();
+    }, 2000);
+});
+
+// Update connection status
+function updateConnectionStatus() {
+    const status = navigator.onLine ? 'online' : 'offline';
+    document.body.setAttribute('data-connection', status);
+}
+
+window.addEventListener('online', updateConnectionStatus);
+window.addEventListener('offline', updateConnectionStatus);
+updateConnectionStatus();
+</script>
+
+<style>
+/* Offline page specific styles */
+body[data-connection="offline"] {
+    background-color: #f8f8f8;
+}
+
+body[data-connection="online"] {
+    background-color: #e8f5e8;
+}
+
+.connection-indicator {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+body[data-connection="offline"] .connection-indicator {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+body[data-connection="online"] .connection-indicator {
+    background-color: #51cf66;
+    color: white;
+}
+</style>
+

@@ -1,0 +1,194 @@
+---
+layout: default
+---
+
+<div class="container">
+    <div class="section">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" style="margin-bottom: 2rem;">
+            <a href="{{ '/' | relative_url }}" style="color: #88AA77;">Home</a>
+            <span style="margin: 0 0.5rem; color: #111111;">></span>
+            <a href="{{ '/#prodotti' | relative_url }}" style="color: #88AA77;">Prodotti</a>
+            <span style="margin: 0 0.5rem; color: #111111;">></span>
+            <span style="color: #111111;">{{ page.title }}</span>
+        </nav>
+
+        <div class="grid grid--asymmetric">
+            <!-- Product Image -->
+            <div class="product-detail__image">
+                <div class="card">
+                    {% if page.image %}
+                        <img src="{{ '/assets/images/' | append: page.image | relative_url }}" 
+                             alt="{{ page.title }}" 
+                             loading="lazy"
+                             style="width: 100%; height: 400px; object-fit: cover; border: 3px solid #111111;">
+                    {% else %}
+                        <div style="width: 100%; height: 400px; background-color: #E8F0E5; border: 3px solid #111111; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #111111;">
+                            Immagine Prodotto
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-detail__info">
+                <div class="card">
+                    {% if page.category %}
+                        <div class="product-card__category">{{ page.category }}</div>
+                    {% endif %}
+                    
+                    <h1 class="product-detail__title">{{ page.title }}</h1>
+                    
+                    {% if page.description %}
+                        <p class="product-detail__description">{{ page.description }}</p>
+                    {% endif %}
+                    
+                    {% if page.features %}
+                        <div class="product-card__features">
+                            <h3 style="font-size: 1.125rem; margin-bottom: 1rem;">Caratteristiche:</h3>
+                            <ul>
+                                {% for feature in page.features %}
+                                    <li>{{ feature }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                    
+                    <div class="product-detail__footer">
+                        {% if page.price %}
+                            <div class="product-card__price">{{ page.price }}</div>
+                        {% endif %}
+                        
+                        {% if page.amazon_id %}
+                            <a href="https://amazon.it/dp/{{ page.amazon_id }}" 
+                               class="btn btn--large" 
+                               target="_blank" 
+                               rel="noopener noreferrer">
+                                Acquista su Amazon
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Content -->
+        {% if content and content != empty %}
+            <div class="product-detail__content section">
+                <div class="card">
+                    <div class="card__header">
+                        <h2>Dettagli Prodotto</h2>
+                    </div>
+                    <div class="card__content">
+                        {{ content }}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <!-- Related Products -->
+        <div class="section">
+            <h2 class="text-center mb-12">Prodotti Correlati</h2>
+            <div class="grid grid--products">
+                {% assign related_products = site.data.products | where: "category", page.category %}
+                {% for category in related_products limit: 1 %}
+                    {% for item in category.items limit: 3 %}
+                        {% unless item.title == page.title %}
+                            <div class="product-card fade-in-up">
+                                <div class="product-card__image">
+                                    {% if item.image %}
+                                        <img src="{{ '/assets/images/' | append: item.image | relative_url }}" 
+                                             alt="{{ item.title }}" 
+                                             loading="lazy">
+                                    {% else %}
+                                        Immagine Prodotto
+                                    {% endif %}
+                                </div>
+                                <div class="product-card__content">
+                                    <div class="product-card__category">{{ category.category }}</div>
+                                    <h3 class="product-card__title">{{ item.title }}</h3>
+                                    <p class="product-card__description">{{ item.description }}</p>
+                                    
+                                    {% if item.features %}
+                                        <div class="product-card__features">
+                                            <ul>
+                                                {% for feature in item.features limit: 3 %}
+                                                    <li>{{ feature }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                    
+                                    <div class="product-card__footer">
+                                        <div class="product-card__price">{{ item.price }}</div>
+                                        {% if item.amazon_id %}
+                                            <a href="https://amazon.it/dp/{{ item.amazon_id }}" 
+                                               class="product-card__cta" 
+                                               target="_blank" 
+                                               rel="noopener noreferrer">
+                                                Acquista
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endunless %}
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.product-detail__title {
+    font-size: 2.25rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.product-detail__description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.product-detail__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #111111;
+}
+
+.breadcrumb {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    transition: color 0.15s ease-out;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .product-detail__footer {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .product-detail__title {
+        font-size: 1.875rem;
+    }
+}
+</style>
+
